@@ -5,14 +5,14 @@ import Input from "../../General_UI/Input/Input";
 
 export default (props) => {
     const amoutInputRef = useRef();
-    const [amountValid, setAmoutValid] = useState(true);
+    const [amountValid, setAmountValid] = useState(true);
     const submitHandler = e =>{
         e.preventDefault();
         const enteredAmout = amoutInputRef.current.value;
         const enteredAmoutNumber = +enteredAmout;
 
         if(enteredAmout.trim().length === 0 || enteredAmoutNumber < 1 || enteredAmoutNumber > 5) {
-            setAmoutValid(false)
+            setAmountValid(false)
             return;
         }
 
@@ -24,7 +24,7 @@ export default (props) => {
         ref={amoutInputRef}
         label="Amount"
          input={{
-            id: 'amount_' + props.id,
+            id: 'amount' + props.id,
             type: 'number',
             min: '1',
             max: '5',
